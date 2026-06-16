@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Alke Wallet | Depósito y retiro</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="app-body">
+  <nav class="navbar navbar-expand-lg app-navbar sticky-top" aria-label="Navegación principal">
+    <div class="container">
+      <a class="navbar-brand brand" href="menu.html">
+        <span class="brand-logo" aria-hidden="true">A</span>
+        <span><strong>Alke Wallet</strong><small>Depósitos</small></span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false" aria-label="Abrir menú">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mainNavbar">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center">
+          <li class="nav-item"><a class="nav-link" href="menu.html">Inicio</a></li>
+          <li class="nav-item"><a class="nav-link active" href="deposit.html">Depósito / Retiro</a></li>
+          <li class="nav-item"><a class="nav-link" href="sendmoney.html">Enviar dinero</a></li>
+          <li class="nav-item"><a class="nav-link" href="transactions.html">Movimientos</a></li>
+          <li class="nav-item ms-lg-3"><button class="btn btn-outline-light btn-sm" data-action="logout">Salir</button></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container py-4 py-lg-5">
+    <section class="page-header mb-4">
+      <div>
+        <p class="eyebrow">Administración de fondos</p>
+        <h1>Depósito y retiro</h1>
+        <p>Simula movimientos propios y observa cómo se actualiza tu saldo.</p>
+      </div>
+      <div class="mini-balance">
+        <span>Saldo actual</span>
+        <strong class="js-balance">$0</strong>
+      </div>
+    </section>
+
+    <section class="row g-4">
+      <div class="col-lg-7">
+        <div class="panel">
+          <ul class="nav nav-pills custom-tabs mb-4" id="fundsTabs" role="tablist">
+            <li class="nav-item" role="presentation">
+              <button class="nav-link active" id="deposit-tab" data-bs-toggle="pill" data-bs-target="#depositPane" type="button" role="tab" aria-controls="depositPane" aria-selected="true">Depositar</button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" id="withdraw-tab" data-bs-toggle="pill" data-bs-target="#withdrawPane" type="button" role="tab" aria-controls="withdrawPane" aria-selected="false">Retirar</button>
+            </li>
+          </ul>
+
+          <div id="fundsMessage" class="alert d-none" role="alert"></div>
+
+          <div class="tab-content" id="fundsTabsContent">
+            <div class="tab-pane fade show active" id="depositPane" role="tabpanel" aria-labelledby="deposit-tab">
+              <form id="depositForm" novalidate>
+                <div class="mb-3">
+                  <label for="depositAmount" class="form-label">Monto a depositar</label>
+                  <input type="text" class="form-control form-control-lg" id="depositAmount" inputmode="numeric" placeholder="Ej: 50000" required>
+                  <div class="form-text">Solo se aceptan montos mayores a cero.</div>
+                </div>
+                <button class="btn btn-primary btn-lg" type="submit">Realizar depósito</button>
+              </form>
+            </div>
+
+            <div class="tab-pane fade" id="withdrawPane" role="tabpanel" aria-labelledby="withdraw-tab">
+              <form id="withdrawForm" novalidate>
+                <div class="mb-3">
+                  <label for="withdrawAmount" class="form-label">Monto a retirar</label>
+                  <input type="text" class="form-control form-control-lg" id="withdrawAmount" inputmode="numeric" placeholder="Ej: 30000" required>
+                  <div class="form-text">El retiro no puede superar tu saldo disponible.</div>
+                </div>
+                <button class="btn btn-dark btn-lg" type="submit">Realizar retiro</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-5">
+        <div class="panel h-100">
+          <h2 class="section-title">Últimos movimientos propios</h2>
+          <div id="fundsTransactions" class="transaction-list compact"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>

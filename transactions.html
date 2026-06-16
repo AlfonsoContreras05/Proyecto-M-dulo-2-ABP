@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Alke Wallet | Movimientos</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="app-body">
+  <nav class="navbar navbar-expand-lg app-navbar sticky-top" aria-label="Navegación principal">
+    <div class="container">
+      <a class="navbar-brand brand" href="menu.html">
+        <span class="brand-logo" aria-hidden="true">A</span>
+        <span><strong>Alke Wallet</strong><small>Movimientos</small></span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false" aria-label="Abrir menú">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mainNavbar">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center">
+          <li class="nav-item"><a class="nav-link" href="menu.html">Inicio</a></li>
+          <li class="nav-item"><a class="nav-link" href="deposit.html">Depósito / Retiro</a></li>
+          <li class="nav-item"><a class="nav-link" href="sendmoney.html">Enviar dinero</a></li>
+          <li class="nav-item"><a class="nav-link active" href="transactions.html">Movimientos</a></li>
+          <li class="nav-item ms-lg-3"><button class="btn btn-outline-light btn-sm" data-action="logout">Salir</button></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container py-4 py-lg-5">
+    <section class="page-header mb-4">
+      <div>
+        <p class="eyebrow">Historial de transacciones</p>
+        <h1>Últimos movimientos</h1>
+        <p>Consulta todos los movimientos realizados dentro de la aplicación.</p>
+      </div>
+      <div class="mini-balance">
+        <span>Saldo actual</span>
+        <strong class="js-balance">$0</strong>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="row g-3 align-items-end mb-4">
+        <div class="col-md-5">
+          <label for="transactionSearch" class="form-label">Buscar movimiento</label>
+          <input type="search" id="transactionSearch" class="form-control" placeholder="Contacto, detalle o monto">
+        </div>
+        <div class="col-md-3">
+          <label for="typeFilter" class="form-label">Tipo</label>
+          <select id="typeFilter" class="form-select">
+            <option value="all">Todos</option>
+            <option value="deposit">Depósitos</option>
+            <option value="withdraw">Retiros</option>
+            <option value="send">Envíos</option>
+          </select>
+        </div>
+        <div class="col-md-2">
+          <button id="clearFilters" class="btn btn-outline-secondary w-100" type="button">Limpiar</button>
+        </div>
+        <div class="col-md-2 text-md-end">
+          <span class="badge text-bg-light" id="resultCount">0 registros</span>
+        </div>
+      </div>
+
+      <div class="table-responsive">
+        <table class="table align-middle transaction-table">
+          <thead>
+            <tr>
+              <th>Fecha</th>
+              <th>Detalle</th>
+              <th>Tipo</th>
+              <th class="text-end">Monto</th>
+            </tr>
+          </thead>
+          <tbody id="transactionsTableBody"></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>
